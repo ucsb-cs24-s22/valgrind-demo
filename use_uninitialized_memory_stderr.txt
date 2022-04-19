@@ -1,0 +1,43 @@
+==8560== Memcheck, a memory error detector
+==8560== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==8560== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==8560== Command: ./a.out
+==8560== 
+==8560== Conditional jump or move depends on uninitialised value(s)
+==8560==    at 0x4981402: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==8560==    by 0x498FD5E: std::ostream& std::ostream::_M_insert<long>(long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==8560==    by 0x1091C5: main (use_uninitialized_memory.cpp:9)
+==8560== 
+==8560== Use of uninitialised value of size 8
+==8560==    at 0x498110B: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==8560==    by 0x498142C: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==8560==    by 0x498FD5E: std::ostream& std::ostream::_M_insert<long>(long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==8560==    by 0x1091C5: main (use_uninitialized_memory.cpp:9)
+==8560== 
+==8560== Conditional jump or move depends on uninitialised value(s)
+==8560==    at 0x498111D: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==8560==    by 0x498142C: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==8560==    by 0x498FD5E: std::ostream& std::ostream::_M_insert<long>(long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==8560==    by 0x1091C5: main (use_uninitialized_memory.cpp:9)
+==8560== 
+==8560== Conditional jump or move depends on uninitialised value(s)
+==8560==    at 0x4981462: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==8560==    by 0x498FD5E: std::ostream& std::ostream::_M_insert<long>(long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==8560==    by 0x1091C5: main (use_uninitialized_memory.cpp:9)
+==8560== 
+==8560== Syscall param exit_group(status) contains uninitialised byte(s)
+==8560==    at 0x4B21176: _Exit (_exit.c:31)
+==8560==    by 0x4A849F1: __run_exit_handlers (exit.c:132)
+==8560==    by 0x4A84A8F: exit (exit.c:139)
+==8560==    by 0x4A620B9: (below main) (libc-start.c:342)
+==8560== 
+==8560== 
+==8560== HEAP SUMMARY:
+==8560==     in use at exit: 0 bytes in 0 blocks
+==8560==   total heap usage: 2 allocs, 2 frees, 73,728 bytes allocated
+==8560== 
+==8560== All heap blocks were freed -- no leaks are possible
+==8560== 
+==8560== Use --track-origins=yes to see where uninitialised values come from
+==8560== For lists of detected and suppressed errors, rerun with: -s
+==8560== ERROR SUMMARY: 5 errors from 5 contexts (suppressed: 0 from 0)
