@@ -33,6 +33,14 @@ valgrind --tool=memcheck --leak-check=full ./a.out
 valgrind --tool=memcheck --leak-check=full ./a.out 2> FILENAME.txt
 ```
 
+## Understanding Memory Leaks
+
+According to this [tutorial from Stanford](https://web.stanford.edu/class/archive/cs/cs107/cs107.1222/resources/valgrind.html), Valgrind categorizes leaks using these terms (found in the LEAK SUMMARY):
+- *definitely lost*: heap-allocated memory that was never freed to which the program no longer has a pointer. Valgrind knows that you once had the pointer, but have since lost track of it. This memory is definitely orphaned.
+- *indirectly lost*: heap-allocated memory that was never freed to which the only pointers to it also are lost. For example, if you orphan a linked list, the first node would be definitely lost, the subsequent nodes would be indirectly lost.
+- *possibly lost*: heap-allocated memory that was never freed to which valgrind cannot be sure whether there is a pointer or not.
+- *still reachable*: heap-allocated memory that was never freed to which the program still has a pointer at exit.
+
 ## Other Resources
 
 There are many valgrind tutorials and examples online, such as
